@@ -6,7 +6,7 @@ from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 @cocotb.test()
 async def test_modem(dut):
     dut._log.info("start")
-    clock = Clock(dut.clk, 2000, units="us")
+    clock = Clock(dut.clk, 200, units="us")
     cocotb.start_soon(clock.start())
 
     # reset
