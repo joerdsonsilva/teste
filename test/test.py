@@ -11,14 +11,14 @@ async def test_project(dut):
     dut._log.info("Start")
 
     # Set the clock period to 10 us (100 KHz)
-    clock = Clock(dut.clk, 200, units="ns")
+    clock = Clock(dut.clk, 2000, units="us")
     cocotb.start_soon(clock.start())
 
   # reset
     dut._log.info("reset")
     dut.rst_n.value = 0
     await ClockCycles(dut.clk, 500)
-    await Timer(200, units="ns")
+    await Timer(200, units="us")
 
     dut.rst_n.value = 1
     await ClockCycles(dut.clk, 1200)
